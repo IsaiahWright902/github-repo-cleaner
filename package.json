@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "start-cleaner": "node -r esbuild-register utils/init-and-run.ts && npm run start"
+    "start-cleaner": "node -r esbuild-register utils/init-and-run.ts && npm run dev"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
