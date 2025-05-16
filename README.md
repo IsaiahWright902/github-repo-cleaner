@@ -4,11 +4,22 @@ A simple tool to bulk delete old or unused repositories from your GitHub account
 Authentication is handled via GitHub SSO using a GitHub OAuth App that you configure.
 ![image](https://github.com/user-attachments/assets/e007911b-abf1-4410-a23a-7ec5c3c7521c)
 
-
 ## Features
 - Bulk select and delete repositories from your GitHub account
 - Authenticate using GitHub SSO via your own OAuth App
 - Environment variables can be entered interactively on first run
+
+## Warning
+
+This tool **permanently deletes GitHub repositories**. Once a repository is deleted, it **cannot be recovered**.
+
+Because of the destructive nature of this action, you are required to configure your **own GitHub OAuth App**. This ensures that:
+
+- You understand and take full responsibility for the access being granted.
+- Your GitHub credentials and OAuth configuration remain private.
+- The tool only has access to the repositories under your account or organization that you explicitly authorize.
+
+**Use this tool with caution.** Review the list of repositories carefully before proceeding with deletion.
 
 ## Getting Started
 - Set up Github OAuth application:
