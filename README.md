@@ -22,30 +22,66 @@ Because of the destructive nature of this action, you are required to configure 
 **Use this tool with caution.** Review the list of repositories carefully before proceeding with deletion.
 
 ## Getting Started
-- Set up Github OAuth application:
+
+- **Set up GitHub OAuth application:**
   - Go to GitHub Developer Settings: https://github.com/settings/developers
   - Create a new OAuth App
-  - Set the Homepage URL to http://localhost:3000
-  - Set the Authorization callback URL to http://localhost:3000/api/auth/callback/github
-  - Save your `Client Id` and `Client Secret`    
-- Install/Setup:
-  - Clone this repo
-  - run `npm i` in the directory you cloned it in
-  - run `npm run start-cleaner` - this will check if you have a .env.local file. If you do not it will automatically create one and ask for your input.
-- Env Variables:
-  - NEXTAUTH_URL: Leave as https://localhost:3000
-  - NEXTAUTH_SECRET: Copy generated value from one of the commands below
-      - Node: `node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"`
-      - Bash: `openssl rand -hex 32`
-  - GITHUB_CLIENT_ID: Your Github OAuth Client Id
-  - GITHUB_CLIENT_SECRET: Your Github OAuth Client Secret
-- Open in browser:
-  - Open http://localhost:3000 in your browser
-  - Log in though Github OAuth
-  - Clean dem repos!
- 
-## Starting Applicaiton after Init
-- You can use either of these commands
-    - `npm run dev`
-    - `npm run start-cleaner`
-  
+  - Set the Homepage URL to: `http://localhost:3000`
+  - Set the Authorization callback URL to: `http://localhost:3000/api/auth/callback/github`
+  - Save your `Client ID` and `Client Secret`
+
+- **Install / Setup:**
+  - Clone this repo:
+    ```bash
+    git clone https://github.com/IsaiahWright902/github-repo-cleaner.git
+    cd github-repo-cleaner
+    ```
+  - Install dependencies:
+    ```bash
+    npm install
+    ```
+  - Run the tool:
+    ```bash
+    npm run start-cleaner
+    ```
+    This will check for a `.env.local` file. If it doesn't exist, the script will prompt you to enter values and create the file automatically.
+
+- **Environment Variables:**
+
+  | Variable              | Description                                |
+  |-----------------------|--------------------------------------------|
+  | `NEXTAUTH_URL`        | Leave as `http://localhost:3000`          |
+  | `NEXTAUTH_SECRET`     | Secure random string (see below)          |
+  | `GITHUB_CLIENT_ID`    | Your GitHub OAuth App Client ID           |
+  | `GITHUB_CLIENT_SECRET`| Your GitHub OAuth App Client Secret       |
+
+  **Generate `NEXTAUTH_SECRET`:**
+  - Using Node:
+    ```bash
+    node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+    ```
+  - Using Bash / OpenSSL:
+    ```bash
+    openssl rand -hex 32
+    ```
+
+- **Open in browser:**
+  - Visit `http://localhost:3000`
+  - Log in through GitHub OAuth
+  - Begin cleaning your repositories
+
+---
+
+## Starting the Application After Initial Setup
+
+Once the environment is configured, you can start the app with either of the following:
+
+```bash
+npm run dev
+```
+
+or
+
+```bash
+npm start-cleaner
+```
