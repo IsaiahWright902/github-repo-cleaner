@@ -23,7 +23,7 @@ export default function DashboardNav() {
                 {" "}
                 <Avatar alt="Remy Sharp" src={session.data?.user?.image!} />
                 <Typography variant="h5" pl={1}>
-                  {session.data?.user?.name}
+                  {session.data?.user?.name} - Github Repo Cleaner
                 </Typography>
               </Stack>
             )}

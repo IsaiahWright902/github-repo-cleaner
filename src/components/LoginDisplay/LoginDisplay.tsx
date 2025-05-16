@@ -27,8 +27,14 @@ export default function LoginDisplay() {
             </a>{" "}
             to securely authenticate with your GitHub account and fetch your
             repository list. To use this tool, you'll need to configure your own
-            OAuth application. Please follow the setup instructions provided in
-            this repository to complete the configuration properly.
+            OAuth application. Please follow the setup instructions provided in{" "}
+            <a
+              target="_blank"
+              href="https://github.com/IsaiahWright902/github-repo-cleaner"
+            >
+              this repository
+            </a>{" "}
+            to complete the configuration properly.
           </Typography>
           <Typography variant="body2" color="error">
             This application will permanently delete the repositories you

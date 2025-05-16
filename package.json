@@ -6,13 +6,15 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "start-cleaner": "node -r esbuild-register utils/init-and-run.ts && npm run start"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
+    "@mui/x-data-grid": "^8.3.1",
     "next": "15.3.2",
     "next-auth": "^4.24.11",
     "react": "^19.0.0",
@@ -23,6 +25,8 @@
     "@types/node": "^20.17.47",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "esbuild": "^0.25.4",
+    "esbuild-register": "^3.6.0",
     "typescript": "^5"
   }
 }
