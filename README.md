@@ -68,7 +68,7 @@ Because of the destructive nature of this action, you are required to configure 
 - **Open in browser:**
   - Visit `http://localhost:3000`
   - Log in through GitHub OAuth
-  - Begin cleaning your repositories
+  - Clean dem repos!
 
 ---
 
