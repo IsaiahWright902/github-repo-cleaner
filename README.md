@@ -8,6 +8,7 @@ Authentication is handled via GitHub SSO using a GitHub OAuth App that you confi
 - Bulk select and delete repositories from your GitHub account
 - Authenticate using GitHub SSO via your own OAuth App
 - Environment variables can be entered interactively on first run
+- Only returns repos you own
 
 ## Warning
 
