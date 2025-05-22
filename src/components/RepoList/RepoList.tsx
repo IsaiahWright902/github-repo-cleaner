@@ -71,6 +71,7 @@ export default function RepoList() {
         private: repo.private,
         url: repo.html_url,
         language: repo.language,
+        forked: repo.fork,
       }))
     );
   }, [filteredRepos]);
@@ -94,6 +95,12 @@ export default function RepoList() {
           {params.value}
         </Link>
       ),
+    },
+    {
+      field: "owner",
+      headerName: "Owner",
+      flex: 0.5,
+      hideable: true,
     },
     {
       field: "description",
