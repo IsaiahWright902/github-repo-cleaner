@@ -3,7 +3,7 @@ import { GithubRepo } from "@/types/types"
 export async function fetchUserRepos(accessToken: string): Promise<GithubRepo[]> {
     if (!accessToken) return [];
 
-    const response = await fetch("https://api.github.com/user/repos?per_page=200", {
+    const response = await fetch("https://api.github.com/user/repos?per_page=200&type=owner", {
         headers: {
             Authorization: `token ${accessToken}`,
             Accept: "application/vnd.github.v3+json"
@@ -17,8 +17,6 @@ export async function fetchUserRepos(accessToken: string): Promise<GithubRepo[]>
     const data = await response.json();
 
     return data.map((repo: any) => mapToGithubRepoType(repo))
-
-
 }
 
 function mapToGithubRepoType(data: any): GithubRepo {
@@ -37,7 +35,7 @@ function mapToGithubRepoType(data: any): GithubRepo {
         stargazers_count: data.stargazers_count,
         watchers_count: data.watchers_count,
         language: data.language,
-        default_branch: data.default_branch
+        default_branch: data.default_branch,
     }
 }
 
