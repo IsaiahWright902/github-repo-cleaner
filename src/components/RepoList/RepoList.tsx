@@ -33,9 +33,6 @@ export default function RepoList() {
         deleteRepository(session.data?.accessToken!, fullName)
       )
     );
-    selectedRows.forEach(async (row) => {
-      await deleteRepository(session.data?.accessToken!, row);
-    });
 
     await handleGetRepos();
 
