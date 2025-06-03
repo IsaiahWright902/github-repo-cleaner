@@ -1,5 +1,12 @@
 "use client";
-import { Stack, TextField, Typography } from "@mui/material";
+import CloseIcon from "@mui/icons-material/Close";
+import {
+  Fade,
+  IconButton,
+  InputAdornment,
+  Stack,
+  TextField,
+} from "@mui/material";
 
 export default function RepoSearch({
   search,
@@ -8,6 +15,12 @@ export default function RepoSearch({
   search: string;
   setSearch: React.Dispatch<string>;
 }) {
+  const clearText = () => {
+    setSearch("");
+  };
+
+  const clearAvailable = search.length > 0;
+
   return (
     <Stack>
       <TextField
@@ -16,6 +29,19 @@ export default function RepoSearch({
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         size="small"
+        slotProps={{
+          input: {
+            endAdornment: (
+              <InputAdornment position="end">
+                <Fade in={clearAvailable}>
+                  <IconButton onClick={clearText}>
+                    <CloseIcon />
+                  </IconButton>
+                </Fade>
+              </InputAdornment>
+            ),
+          },
+        }}
       />
     </Stack>
   );

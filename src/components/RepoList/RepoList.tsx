@@ -7,6 +7,7 @@ import { deleteRepository, fetchUserRepos } from "@/lib/github";
 import { useSession } from "next-auth/react";
 import RepoSearch from "./RepoSearch";
 import ConfirmDeleteModal from "../ConfirmDeleteModal/ConfirmDeleteModal";
+import LoadingModal from "../LoadingModal/LoadingModal";
 
 export default function RepoList() {
   const session = useSession();
@@ -15,6 +16,7 @@ export default function RepoList() {
   const [search, setSearch] = useState<string>("");
   const [rows, setRows] = useState<any[]>([]);
   const [open, setOpen] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
   const handleClose = () => setOpen(false);
 
   const [selectedRows, setSelectedRows] = useState<Set<string>>(new Set());
@@ -24,6 +26,8 @@ export default function RepoList() {
   };
 
   const handleDelete = async () => {
+    setIsLoading(true);
+
     await Promise.all(
       [...selectedRows].map((fullName) =>
         deleteRepository(session.data?.accessToken!, fullName)
@@ -34,6 +38,8 @@ export default function RepoList() {
     });
 
     await handleGetRepos();
+
+    setIsLoading(false);
   };
 
   const handleGetRepos = async () => {
@@ -95,12 +101,6 @@ export default function RepoList() {
           {params.value}
         </Link>
       ),
-    },
-    {
-      field: "owner",
-      headerName: "Owner",
-      flex: 0.5,
-      hideable: true,
     },
     {
       field: "description",
@@ -181,6 +181,7 @@ export default function RepoList() {
         repoNames={selectedRows}
         permanentlyDelete={handleDelete}
       />
+      <LoadingModal isLoading={isLoading} />
     </>
   );
 }
